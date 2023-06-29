@@ -900,6 +900,7 @@ class SingleSelection extends StatefulWidget {
   final double searchHeight;
   final FocusNode searchFocusNode;
   final FocusNode mainFocusNode;
+  
   final TextInputType? searchKeyboardType;
   final bool searchAutofocus;
   final bool? searchShowCursor;
@@ -907,6 +908,7 @@ class SingleSelection extends StatefulWidget {
   final bool autoSort;
   final Function? onSearchTap;
   final Function? onSearchSubmit;
+  final TextStyle? searchTextFieldStyle;
   final TextStyle? listTextStyle;
   final ListPadding listPadding;
   final InputDecoration? searchDecoration;
