@@ -77,6 +77,7 @@ class DropDownTextField extends StatefulWidget {
       this.listPadding,
       this.listTextStyle,
       this.keyboardType,
+      this.searchTextFieldStyle,
       this.autovalidateMode})
       : assert(
           !(initialValue != null && controller != null),
@@ -124,6 +125,7 @@ class DropDownTextField extends StatefulWidget {
       this.listPadding,
       this.listTextStyle,
       this.checkBoxProperty,
+      this.searchTextFieldStyle,
       this.autovalidateMode})
       : assert(initialValue == null || controller == null,
             "you cannot add both initialValue and multiController\nset initial value using controller\n\tMultiValueDropDownController(data:initial value)"),
@@ -243,6 +245,9 @@ class DropDownTextField extends StatefulWidget {
 
   ///customize checkbox property
   final CheckBoxProperty? checkBoxProperty;
+
+  ///seach text field text style
+  final TextStyle? searchTextFieldStyle;
 
   @override
   _DropDownTextFieldState createState() => _DropDownTextFieldState();
@@ -772,6 +777,7 @@ class _DropDownTextFieldState extends State<DropDownTextField>
                       listTileHeight: _listTileHeight,
                       dropDownList: _dropDownList,
                       listTextStyle: _listTileTextStyle,
+                      searchTextFieldStyle: widget.searchTextFieldStyle,
                       onChanged: (item) {
                         setState(() {
                           _cnt.text = item.name;
@@ -883,6 +889,7 @@ class SingleSelection extends StatefulWidget {
       this.listTextStyle,
       this.searchDecoration,
       required this.listPadding,
+      required this.searchTextFieldStyle,
       this.clearIconProperty})
       : super(key: key);
   final List<DropDownValueModel> dropDownList;
@@ -969,7 +976,7 @@ class _SingleSelectionState extends State<SingleSelection> {
                 showCursor: widget.searchShowCursor,
                 keyboardType: widget.searchKeyboardType,
                 controller: _searchCnt,
-                style: TextStyle(fontSize: 10),
+                style: widget.searchTextFieldStyle,
                 onTap: () {
                   if (widget.onSearchTap != null) {
                     widget.onSearchTap!();
