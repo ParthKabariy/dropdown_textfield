@@ -969,6 +969,7 @@ class _SingleSelectionState extends State<SingleSelection> {
                 showCursor: widget.searchShowCursor,
                 keyboardType: widget.searchKeyboardType,
                 controller: _searchCnt,
+                style: TextStyle(fontSize: 10),
                 onTap: () {
                   if (widget.onSearchTap != null) {
                     widget.onSearchTap!();
